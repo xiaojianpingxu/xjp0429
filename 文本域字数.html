@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html >
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    .inputArea{
+        width: 500px;height: 300px;
+        border: 1px solid gray;
+        position: relative;
+        border-radius: 3px;
+    }
+    textarea{
+        width: 100%;height: 100%;
+        box-sizing: border-box;
+        resize: none;
+        border: none;
+        outline: none;
+    }
+    .tip{
+        position: absolute; bottom: 10px; right: 10px;
+        font-size: 12px;
+    }
+    </style>
+</head>
+<body>
+    <div class="inputArea">
+        <textarea ></textarea>
+        <div class="tip">
+            <span class="count">0</span> &nbsp;/ &nbsp;<span>20</span>
+        </div>
+    </div>
+    <script>
+    let textarea = document.querySelector('textarea')
+    let count =  document.querySelector('.count')
+    textarea.onkeyup =()=>{
+        
+        if(20 < textarea.value.length){
+            textarea.value =  textarea.value.substring(0,20)
+        }
+        count.innerText = textarea.value.length
+        
+    }
+    
+    </script>
+</body>
+</html>

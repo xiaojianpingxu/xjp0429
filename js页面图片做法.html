@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html >
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    html,body,ul{ padding: 0;margin: 0;  font-family: Arial, Helvetica, sans-serif,宋体, 楷体;}
+    ul{ list-style: none;}
+    .clear:after{content: '';display: block;clear: both;}
+    .clear{zoom:1; }
+    a{ text-decoration: none; }
+
+    .list{
+        width: 960px;
+        margin: 0 auto;
+        border: 1px solid gray;
+    }
+    
+    .list li{
+        width: 240px;
+        float: left;
+        margin-bottom: 2em;
+    }
+    .list .price{
+        font-size: 18px; color: #ff4400;
+    }
+    .list .title{
+        font-size: 12px; color: #3d3d3d;
+    }
+
+    
+    </style>
+</head>
+<body>
+    <div class="list">
+        <ul class="clear">
+            <li>
+                <a href="">
+                    <img src="./img/img1.webp./img/img1.webp" alt="">
+                </a>
+                <div class="info">
+                    <div class="price">
+                        ￥<span>1998.00</span>
+                    </div>
+                    <a href="" class="title"><span>【128G到手价低至5388元】Apple/苹果 iPhone XR 移动联通电信4G手机</span></a>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <script>
+    let listData = [
+        {
+            imgStr:'./img/img1.webp',
+            price:'2888',
+            title:'【128G到手价低至5388元】Apple/苹果 iPhone XR 移动联通电信4G手机'
+        },{
+            imgStr:'./img/2.webp',
+            price:'1126',
+            title:'【128G到手价低至5388元】Apple/苹果 iPhone XR 移动联通电信4G手机'
+        },{
+            imgStr:'./img/3.webp',
+            price:'2888',
+            title:'【128G到手价低至5388元】Apple/苹果 iPhone XR 移动联通电信4G手机'
+        },{
+            imgStr:'./img/4.webp',
+            price:'77665',
+            title:'【128G到手价低至5388元】Apple/苹果 iPhone XR 移动联通电信4G手机'
+        },{
+            imgStr:'./img/2.webp',
+            price:'2888',
+            title:'【128G到手价低至5388元】Apple/苹果 iPhone XR 移动联通电信4G手机'
+        },{
+            imgStr:'./img/3.webp',
+            price:'99999',
+            title:'【128G到手价低至5388元】Apple/苹果 iPhone XR 移动联通电信4G手机'
+        },{
+            imgStr:'./img/4.webp',
+            price:'2888',
+            title:'【128G到手价低至5388元】Apple/苹果 iPhone XR 移动联通电信4G手机'
+        },{
+            imgStr:'./img/2.webp',
+            price:'888',
+            title:'【128G到手价低至5388元】Apple/苹果 iPhone XR 移动联通电信4G手机'
+        },{
+            imgStr:'./img/4.webp',
+            price:'2888',
+            title:'【128G到手价低至5388元】Apple/苹果 iPhone XR 移动联通电信4G手机'
+        },{
+            imgStr:'./img/3.webp',
+            price:'888',
+            title:'【128G到手价低至5388元】Apple/苹果 iPhone XR 移动联通电信4G手机'
+        },{
+            imgStr:'./img/2.webp',
+            price:'888',
+            title:'【128G到手价低至5388元】Apple/苹果 iPhone XR 移动联通电信4G手机'
+        },{
+            imgStr:'./img/4.webp',
+            price:'1232',
+            title:'【128G到手价低至5388元】Apple/苹果 iPhone XR 移动联通电信4G手机'
+        },{
+            imgStr:'./img/2.webp',
+            price:'578',
+            title:'【128G到手价低至5388元】Apple/苹果 iPhone XR 移动联通电信4G手机'
+        },{
+            imgStr:'./img/3.webp',
+            price:'1778',
+            title:'【128G到手价低至5388元】Apple/苹果 iPhone XR 移动联通电信4G手机'
+        },{
+            imgStr:'./img/4.webp',
+            price:'33',
+            title:'【128G到手价低至5388元】Apple/苹果 iPhone XR 移动联通电信4G手机'
+        },{
+            imgStr:'./img/2.webp',
+            price:'2348',
+            title:'【128G到手价低至5388元】Apple/苹果 iPhone XR 移动联通电信4G手机'
+        },{
+            imgStr:'./img/4.webp',
+            price:'2188',
+            title:'【128G到手价低至5388元】Apple/苹果 iPhone XR 移动联通电信4G手机'
+        },{
+            imgStr:'./img/2.webp',
+            price:'288',
+            title:'【128G到手价低至5388元】Apple/苹果 iPhone XR 移动联通电信4G手机'
+        },
+    ]
+    createlist( listData )
+
+
+    function createlist( listData ){
+        let liStr = ``
+        for(const data of listData  ){
+            liStr += `
+            <li>
+                <a href="">
+                    <img src="${data.imgStr}" alt="">
+                </a>
+                <div class="info">
+                    <div class="price">
+                        ￥<span>${data.price}.00</span>
+                    </div>
+                    <a href="" class="title"><span>${data.title}</span></a>
+                </div>
+            </li>`
+        }
+        document.querySelector('.list>ul').innerHTML = liStr
+
+    }
+
+
+    </script>
+</body>
+</html>

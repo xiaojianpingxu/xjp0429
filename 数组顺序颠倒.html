@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+        
+
+    <script>
+
+
+
+        let array = [1,2,3,5,76,8,9]
+        Array.prototype.myRe = function () {
+            let index = 0
+            let lastIndex = this.length-1
+            console.log(lastIndex);
+            
+            while(true){
+                if(0 > lastIndex-index){
+                    break
+                }
+
+               let value = null
+               value = this[index]
+               this[index] = this[lastIndex]
+               this[lastIndex] = value
+
+                index++
+                lastIndex--
+            }
+        }
+        
+        array.myRe()
+        console.log(array);
+        
+    
+    </script>
+</body>
+</html>

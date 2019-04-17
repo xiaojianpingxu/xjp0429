@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    *{margin: 0;padding: 0;}
+    .box{
+        margin: 200px auto;
+        width: 500px;height:500px;
+        background: #dfdfdf;
+        position: relative;
+    }
+    .box2{
+        width: 30px;height: 30px;
+        background: #4346eb;
+        border-radius: 50%;
+        position: absolute;
+       
+     }
+    </style>
+
+
+</head>
+<body>
+   
+    <div class="box">
+        <div class="box2"></div>
+    </div>
+
+
+    <script>
+    let box2 = document.querySelector(".box2")
+    let  x=0;
+    let  y=0;
+
+    window.onkeydown =(ev)=>{
+            ev = ev || window.event
+            //console.log(ev.keyCode);
+           switch(ev.keyCode){
+            case 37:
+                //console.log("左边");
+                x-=10;
+                if(0>x) {
+                 x=0;
+                } 
+                box2.style.left =`${x}px`;
+                break;
+            case 38:
+                //console.log("上边");
+                y-=10;
+                if(0>y) {
+                 y=0;
+                } 
+                box2.style.top =`${y}px`;
+                 break;
+            case 39:
+                // console.log("右边");
+                x+=10;
+                if(470<x) {
+                 x=470;
+                } 
+                 box2.style.left =`${x}px`;
+                break;
+            case 40:
+                //console.log("下边");
+                y+=10;
+                if(470<y) {
+                 y=470;
+                } 
+                box2.style.top  =`${y}px`;
+                break;
+         }                       
+    }
+
+        
+        
+        
+        </script>
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

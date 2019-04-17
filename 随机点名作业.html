@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <style>
+        ul{
+            width: 500px;
+            margin: 0 auto;
+        }
+        li{
+            display: inline-block;
+            width: 50px;height: 50px;
+            border:1px solid gray;
+            text-align: center;line-height: 50px;
+            margin-bottom: 20px;
+            position: relative;
+        }
+        li>span{
+            position:absolute;
+            top: -18px;right: 2px;
+            font-size: 12px; color: blue;
+        }
+        .active{
+            border-color: rgb(0, 102, 255);
+            box-shadow: 0 0 5px rgb(0, 102, 255);
+            background: rgb(226, 234, 247);
+        }
+        .active>b{
+            color: red;
+        }
+        #btns{
+            width: 500px;
+            text-align: center;
+            margin: 0 auto;
+            padding: 10px;
+        }
+        b{
+            font-weight: normal;
+            font-size: 12px;
+            color: rgb(113, 113, 236);
+        }
+        
+    </style>
+</head>
+<body>
+
+    <ul>
+        <li><b>1</b> <span>0</span></li>
+        <li><b>2</b> <span>0</span></li>
+        <li><b>3</b> <span>0</span></li>
+        <li><b>4</b> <span>0</span></li>
+        <li><b>5</b> <span>0</span></li>
+        <li><b>6</b> <span>0</span></li>
+        <li><b>7</b> <span>0</span></li>
+        <li><b>8</b> <span>0</span></li>
+        <li><b>9</b> <span>0</span></li>
+        <li><b>10</b> <span>0</span></li>
+        <li><b>11</b> <span>0</span></li>
+        <li><b>12</b> <span>0</span></li>
+        <li><b>13</b> <span>0</span></li>
+        <li><b>14</b> <span>0</span></li>
+        <li><b>15</b> <span>0</span></li>
+        <li><b>16</b> <span>0</span></li>
+        <li><b>17</b> <span>0</span></li>
+        <li><b>18</b> <span>0</span></li>
+        <li><b>19</b> <span>0</span></li>
+        <li><b>20</b> <span>0</span></li>
+        <li><b>21</b> <span>0</span></li>
+        <li><b>22</b> <span>0</span></li>
+        <li><b>23</b> <span>0</span></li>
+        <li><b>24</b> <span>0</span></li>
+        <li><b>25</b> <span>0</span></li>
+        <li><b>26</b> <span>0</span></li>
+        <li><b>27</b> <span>0</span></li>
+        <li><b>28</b> <span>0</span></li>
+        <li><b>29</b> <span>0</span></li>
+        <li><b>30</b> <span>0</span></li>
+        <li><b>31</b> <span>0</span></li>
+        <li><b>32</b> <span>0</span></li>
+        <li><b>33</b> <span>0</span></li>
+        <li><b>34</b> <span>0</span></li>
+        <li><b>35</b> <span>0</span></li>
+        <li><b>36</b> <span>0</span></li>
+        <li><b>37</b> <span>0</span></li>
+        <li><b>38</b> <span>0</span></li>
+    </ul>
+
+    <div id="btns">
+            <button id="btn">开始</button>
+            <button id="stop">停止</button>
+    </div>
+    
+
+    <script>
+        let nameList = ['盛帷鋆','宗杰','杨昕敏','郭豪','郭江','黄泽彬','陈经纬','文春阳','叶利文','段静雄','龙俊','雷杰','王胜利','龙星成','尹鹏','唐茂鑫','龙育成','吴伟东','魏涛','周杰','陈志荣','胡中华','陈思思','陈智浩','肖建平','杨旸卓','杨志强','曾魁','阳林林','潘冬','李广封','刘文正','黄子涵','刘伟','黄鹏','黄世杰','江伟荣','邹家成']
+        setNameToB(nameList)
+        function setNameToB(nameList){
+            let bs = document.querySelectorAll('ul b')
+            for (let i = 0; i < bs.length; i++) {
+                const el = bs[i];
+                el.innerText = nameList[i]
+            }
+        }
+
+        let btn = document.querySelector('#btn')
+        let stop = document.querySelector('#stop')
+        // let countArr = new Array(40)
+        let countArr = []
+        countArr.length = 40
+        countArr.fill(0)
+
+        let t1 = null
+        stop.onclick = ()=>{
+            if(null != t1){
+                clearInterval(t1)
+            }
+            let liActive = document.querySelector('li.active')
+            console.log(liActive.innerHTML)
+        }
+        btn.onclick = ()=>{
+            if(null != t1){
+                clearInterval(t1)
+            }
+            t1 = setInterval(() => {
+                let ran =  Math.random()
+                ran *= 38
+                ran =  Math.round(ran)
+                if(ran == 0){
+                    ran =1
+                }
+                countArr[ran-1]++
+                
+                let activeLi = document.querySelector(`li:nth-child(${ran})`)
+                let span = document.querySelector(`li:nth-child(${ran})>span`)
+                
+                let list = document.querySelectorAll(`li`)
+                for (const key in list) {
+                    list[key].className = ''
+                }
+                activeLi.className = 'active'
+                span.innerText = countArr[ran-1]
+            },50);
+        }
+    </script>
+</body>
+</html>
